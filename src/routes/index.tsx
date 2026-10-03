@@ -17,31 +17,32 @@ import {
   Quote,
 } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
+import logoAsset from "@/assets/tb-montagens-logo.jpg.asset.json";
 
 const IMG = (file: string, w = 1200) =>
   `https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=${w},fit=crop/AMqnyK017wuJewOp/${file}`;
 
 const HERO = IMG("cf0f3f88-3b0e-4c32-9d0b-9a72ce5186af-dOqbKGz8p9So1oQZ.jpeg", 1400);
 const THIAGO = IMG("417ef29b-65cc-4b16-9da1-b0832ed3bb4a-YKb6EgXykKUylp9G.jfif", 900);
-const WA = "https://wa.me/5513997694239";
-const WA_ORC = `${WA}?text=${encodeURIComponent("Olá, gostaria de um orçamento para uma montagem.")}`;
-const GOOGLE = "https://g.co/kgs/dt8zT3M";
+const WA = "https://api.whatsapp.com/send/?phone=5513997694239&text&type=phone_number&app_absent=0";
+const WA_ORC = `https://api.whatsapp.com/send/?phone=5513997694239&text=${encodeURIComponent("Olá, gostaria de um orçamento para uma montagem.")}&type=phone_number&app_absent=0`;
+const GOOGLE = "https://www.google.com/maps/search/?api=1&query=Thiago%20Montador%20TB%20Montagens%20Praia%20Grande";
 const EMAIL = "ccsthii@gmail.com";
 const INSTA = "https://www.instagram.com/thiagomontadordemoveiis";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Thiago Montador de Móveis | Baixada Santista" },
+      { title: "TB Montagens | Montador de Móveis na Baixada Santista" },
       {
         name: "description",
         content:
-          "Montador de móveis profissional há 10 anos na Baixada Santista. Garantia de 1 ano, 5 estrelas no Google e agendamento pelo WhatsApp.",
+          "TB Montagens: montagem profissional de móveis há 10 anos na Baixada Santista, com garantia de 1 ano e atendimento pelo WhatsApp.",
       },
-      { property: "og:title", content: "Thiago Montador de Móveis | Baixada Santista" },
+      { property: "og:title", content: "TB Montagens | Baixada Santista" },
       {
         property: "og:description",
-        content: "Montador de móveis profissional. Qualidade garantida para você.",
+         content: "Montagem profissional de móveis com qualidade garantida para você.",
       },
       { property: "og:image", content: THIAGO },
       { name: "twitter:image", content: THIAGO },
@@ -88,10 +89,10 @@ function Header() {
     >
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-5 py-4 md:px-8">
         <a href="#inicio" className="flex items-center gap-2.5">
-          <img src={IMG("cf0f3f88-3b0e-4c32-9d0b-9a72ce5186af-dOqbKGz8p9So1oQZ.jpeg", 120)} alt="" className="size-9 rounded-full object-cover" />
-          <span className="font-display text-[15px] font-extrabold leading-tight tracking-tight">
-            Thiago
-            <span className="block text-xs font-medium text-muted-foreground">Montador de Móveis</span>
+          <img src={logoAsset.url} alt="Logo TB Montagens" className="size-12 rounded-lg object-contain" />
+          <span className="font-display text-[15px] font-extrabold leading-tight">
+            TB Montagens
+            <span className="block text-xs font-medium text-muted-foreground">Montagem profissional</span>
           </span>
         </a>
         <nav className="hidden items-center gap-7 lg:flex">
@@ -148,10 +149,10 @@ function Hero() {
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 md:px-8 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
         <Reveal>
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border bg-card px-3.5 py-1.5 text-sm shadow-soft">
-            <MapPin className="size-4 text-primary" /> Montador de móveis · Baixada Santista
+            <MapPin className="size-4 text-primary" /> TB Montagens · Baixada Santista
           </div>
           <h1 className="text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-[56px]">
-            Montador de móveis profissional.{" "}
+            TB Montagens.{" "}
             <span className="text-muted-foreground">Qualidade Garantida para você.</span>
           </h1>
           <p className="mt-6 max-w-lg text-lg text-muted-foreground">
@@ -251,8 +252,17 @@ function Diferenciais() {
             Desde opções de pagamento práticas até garantias exclusivas, aproveite a tranquilidade que somente um
             montador experiente pode proporcionar.
           </p>
-          <div className="mt-8 hidden overflow-hidden rounded-3xl lg:block">
-            <img src={IMG("57f0f8e3-a6d9-4f12-8720-25f676f69e5a-AzG782XwvQtX0ZVL.jpeg", 900)} alt="Montagem realizada" className="aspect-[4/3] w-full object-cover" loading="lazy" />
+           <div className="mt-8 overflow-hidden rounded-2xl bg-ink shadow-soft">
+             <div className="aspect-video">
+               <iframe
+                 className="h-full w-full"
+                 src="https://www.youtube.com/embed/BSdzOOCqLZM"
+                 title="TB Montagens - montagem profissional de móveis"
+                 loading="lazy"
+                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture"
+                 allowFullScreen
+               />
+             </div>
           </div>
         </Reveal>
         <div className="grid gap-4 sm:grid-cols-2">
@@ -314,39 +324,30 @@ function Servicos() {
 }
 
 const GALERIA = [
-  { f: "57f0f8e3-a6d9-4f12-8720-25f676f69e5a-AzG782XwvQtX0ZVL.jpeg", c: "md:row-span-2" },
-  { f: "movel7-YrDaryXZMoS4P56y.PNG", c: "" },
-  { f: "movel10-AMqny0pEONs1vLxV.PNG", c: "" },
-  { f: "294771f9-0c75-43c3-8a8f-81c743d39d69-dWxyWK3E74T97v8g.jpg", c: "md:col-span-2" },
-  { f: "movel8-AoPerXN2NafwbX9y.PNG", c: "col-span-2 md:col-span-3" },
-  ];
+  "57f0f8e3-a6d9-4f12-8720-25f676f69e5a-AzG782XwvQtX0ZVL.jpeg",
+  "movel7-YrDaryXZMoS4P56y.PNG",
+  "294771f9-0c75-43c3-8a8f-81c743d39d69-dWxyWK3E74T97v8g.jpg",
+  "movel8-AoPerXN2NafwbX9y.PNG",
+];
 
 function Montagens() {
   return (
     <section id="montagens" className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
-      <Reveal className="max-w-2xl">
-        <Eyebrow>Portfólio</Eyebrow>
-        <h2 className="mt-4 text-3xl font-extrabold md:text-5xl">Montagens Realizadas</h2>
+       <Reveal className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+         <div className="max-w-2xl">
+           <Eyebrow>Portfólio</Eyebrow>
+           <h2 className="mt-4 text-3xl font-extrabold md:text-5xl">Montagens realizadas</h2>
+           <p className="mt-4 text-lg text-muted-foreground">Uma seleção de móveis montados com cuidado, alinhamento e acabamento profissional.</p>
+         </div>
+         <WaButton label="Solicitar orçamento" />
       </Reveal>
-      <div className="mt-12 grid auto-rows-[220px] grid-cols-2 gap-3 md:auto-rows-[240px] md:grid-cols-3 md:gap-4">
-        {GALERIA.map((g, i) => (
-          <Reveal key={g.f} delay={(i % 3) * 70} className={`group overflow-hidden rounded-2xl bg-muted ${g.c}`}>
-            <img src={IMG(g.f, 1000)} alt="Montagem realizada por Thiago" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+       <div className="mt-12 grid grid-cols-2 gap-3 md:gap-5">
+         {GALERIA.map((foto, i) => (
+           <Reveal key={foto} delay={(i % 2) * 70} className="group overflow-hidden rounded-2xl bg-muted">
+             <img src={IMG(foto, 1000)} alt={`Montagem realizada pela TB Montagens ${i + 1}`} loading="lazy" className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-105" />
           </Reveal>
         ))}
       </div>
-      <Reveal className="mt-4 overflow-hidden rounded-2xl bg-ink">
-        <div className="aspect-video">
-          <iframe
-            className="h-full w-full"
-            src="https://www.youtube.com/embed/BSdzOOCqLZM"
-            title="Thiago Montador de Móveis - YouTube"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture"
-            allowFullScreen
-          />
-        </div>
-      </Reveal>
     </section>
   );
 }
@@ -402,7 +403,7 @@ function Contato() {
   const submit = (e: FormEvent) => {
     e.preventDefault();
     const text = `Olá, meu nome é ${form.nome}${form.email ? ` (${form.email})` : ""}.\n\n${form.msg}`;
-    window.open(`${WA}?text=${encodeURIComponent(text)}`, "_blank");
+     window.open(`https://api.whatsapp.com/send/?phone=5513997694239&text=${encodeURIComponent(text)}&type=phone_number&app_absent=0`, "_blank", "noopener,noreferrer");
   };
   const input =
     "w-full rounded-xl border bg-background px-4 py-3.5 outline-none transition-shadow focus:border-primary focus:ring-4 focus:ring-primary/15";
@@ -472,7 +473,10 @@ function Footer() {
     <footer className="border-t bg-secondary">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 md:grid-cols-[1.4fr_1fr_1fr] md:px-8">
         <div>
-          <p className="font-display text-xl font-extrabold">Thiago Montador de Móveis Profissional</p>
+           <div className="flex items-center gap-3">
+             <img src={logoAsset.url} alt="Logo TB Montagens" className="size-14 rounded-lg object-contain" />
+             <p className="font-display text-xl font-extrabold">TB Montagens</p>
+           </div>
           <p className="mt-3 max-w-sm text-muted-foreground">O profissional que sua propriedade sempre precisou</p>
           <a href={INSTA} target="_blank" rel="noreferrer" aria-label="Instagram" className="mt-6 inline-grid size-10 place-items-center rounded-full border bg-card transition-colors hover:bg-primary hover:text-primary-foreground">
             <Instagram className="size-5" />
