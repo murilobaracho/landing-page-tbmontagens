@@ -43,8 +43,8 @@ export const Route = createFileRoute("/")({
         property: "og:description",
         content: "Montador de móveis profissional. Qualidade garantida para você.",
       },
-      { property: "og:image", content: HERO },
-      { name: "twitter:image", content: HERO },
+      { property: "og:image", content: THIAGO },
+      { name: "twitter:image", content: THIAGO },
     ],
   }),
   component: Index,
@@ -88,9 +88,7 @@ function Header() {
     >
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-5 py-4 md:px-8">
         <a href="#inicio" className="flex items-center gap-2.5">
-          <span className="grid size-9 place-items-center rounded-lg bg-ink text-primary">
-            <Wrench className="size-5" />
-          </span>
+          <img src={IMG("cf0f3f88-3b0e-4c32-9d0b-9a72ce5186af-dOqbKGz8p9So1oQZ.jpeg", 120)} alt="" className="size-9 rounded-full object-cover" />
           <span className="font-display text-[15px] font-extrabold leading-tight tracking-tight">
             Thiago
             <span className="block text-xs font-medium text-muted-foreground">Montador de Móveis</span>
@@ -152,7 +150,7 @@ function Hero() {
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border bg-card px-3.5 py-1.5 text-sm shadow-soft">
             <MapPin className="size-4 text-primary" /> Montador de móveis · Baixada Santista
           </div>
-          <h1 className="text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-[64px]">
+          <h1 className="text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-[56px]">
             Montador de móveis profissional.{" "}
             <span className="text-muted-foreground">Qualidade Garantida para você.</span>
           </h1>
@@ -183,7 +181,7 @@ function Hero() {
         </Reveal>
         <Reveal delay={120} className="relative">
           <div className="overflow-hidden rounded-3xl shadow-soft">
-            <img src={HERO} alt="Móvel montado por Thiago" className="aspect-[4/5] w-full object-cover lg:aspect-[5/6]" />
+            <img src={THIAGO} alt="Thiago, montador de móveis profissional" className="aspect-[4/5] w-full object-cover lg:aspect-[5/6]" />
           </div>
           <div className="absolute -bottom-6 left-4 flex items-center gap-3 rounded-2xl border bg-card p-4 shadow-soft sm:-left-6">
             <span className="grid size-11 place-items-center rounded-xl bg-accent text-accent-foreground">
@@ -254,7 +252,7 @@ function Diferenciais() {
             montador experiente pode proporcionar.
           </p>
           <div className="mt-8 hidden overflow-hidden rounded-3xl lg:block">
-            <img src={THIAGO} alt="Thiago, montador de móveis" className="aspect-[4/3] w-full object-cover" loading="lazy" />
+            <img src={IMG("57f0f8e3-a6d9-4f12-8720-25f676f69e5a-AzG782XwvQtX0ZVL.jpeg", 900)} alt="Montagem realizada" className="aspect-[4/3] w-full object-cover" loading="lazy" />
           </div>
         </Reveal>
         <div className="grid gap-4 sm:grid-cols-2">
@@ -320,9 +318,8 @@ const GALERIA = [
   { f: "movel7-YrDaryXZMoS4P56y.PNG", c: "" },
   { f: "movel10-AMqny0pEONs1vLxV.PNG", c: "" },
   { f: "294771f9-0c75-43c3-8a8f-81c743d39d69-dWxyWK3E74T97v8g.jpg", c: "md:col-span-2" },
-  { f: "movel8-AoPerXN2NafwbX9y.PNG", c: "md:row-span-2" },
-  { f: "cf0f3f88-3b0e-4c32-9d0b-9a72ce5186af-dOqbKGz8p9So1oQZ.jpeg", c: "md:col-span-2" },
-];
+  { f: "movel8-AoPerXN2NafwbX9y.PNG", c: "col-span-2 md:col-span-3" },
+  ];
 
 function Montagens() {
   return (
