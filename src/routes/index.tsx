@@ -10,7 +10,6 @@ import {
   Menu,
   X,
   Mail,
-  MessageCircle,
   ArrowUpRight,
   Instagram,
   MapPin,
@@ -18,6 +17,10 @@ import {
 } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import logoAsset from "@/assets/tb-montagens-logo.jpg.asset.json";
+import galeriaRipado from "@/assets/galeria-ripado.jpg";
+import galeriaEstante from "@/assets/galeria-estante.jpg";
+import galeriaArmario from "@/assets/galeria-armario.jpg";
+import galeriaMesa from "@/assets/galeria-mesa.jpg";
 
 const IMG = (file: string, w = 1200) =>
   `https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=${w},fit=crop/AMqnyK017wuJewOp/${file}`;
@@ -60,6 +63,14 @@ const NAV = [
   ["Contato", "#contato"],
 ] as const;
 
+function WhatsAppIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.05 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+    </svg>
+  );
+}
+
 function WaButton({ label = "Agendar pelo WhatsApp", href = WA_ORC, className = "" }) {
   return (
     <a
@@ -68,7 +79,7 @@ function WaButton({ label = "Agendar pelo WhatsApp", href = WA_ORC, className = 
       rel="noreferrer"
       className={`group inline-flex items-center justify-center gap-2 rounded-full bg-whatsapp px-6 py-3.5 font-semibold text-whatsapp-foreground shadow-soft transition-all hover:-translate-y-0.5 hover:brightness-105 ${className}`}
     >
-      <MessageCircle className="size-5" />
+      <WhatsAppIcon className="size-5" />
       {label}
     </a>
   );
@@ -109,7 +120,7 @@ function Header() {
             rel="noreferrer"
             className="hidden items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-ink-foreground transition-transform hover:-translate-y-0.5 sm:inline-flex"
           >
-            <MessageCircle className="size-4" /> WhatsApp
+            <WhatsAppIcon className="size-4" /> WhatsApp
           </a>
           <button
             aria-label="Abrir menu"
@@ -306,15 +317,17 @@ function Servicos() {
         <div className="mt-12 grid gap-5 md:grid-cols-3">
           {SERVICOS.map((s, i) => (
             <Reveal key={s.t} delay={i * 90}>
-              <figure className="group relative overflow-hidden rounded-2xl bg-card">
-                <img src={s.img} alt={s.t} loading="lazy" className="aspect-[4/5] w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                <figcaption className="absolute inset-x-3 bottom-3 flex items-center justify-between rounded-xl bg-card/95 px-5 py-4 backdrop-blur">
-                  <span className="font-display text-lg font-bold">{s.t}</span>
-                  <span className="grid size-8 place-items-center rounded-full bg-primary text-primary-foreground">
-                    <ArrowUpRight className="size-4" />
-                  </span>
-                </figcaption>
-              </figure>
+              <a href="#montagens" aria-label={`Ver mais montagens — ${s.t}`} className="group block overflow-hidden rounded-2xl bg-card">
+                <figure className="relative">
+                  <img src={s.img} alt={s.t} loading="lazy" className="aspect-[4/5] w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <figcaption className="absolute inset-x-3 bottom-3 flex items-center justify-between rounded-xl bg-card/95 px-5 py-4 backdrop-blur">
+                    <span className="font-display text-lg font-bold">{s.t}</span>
+                    <span className="grid size-8 place-items-center rounded-full bg-primary text-primary-foreground">
+                      <ArrowUpRight className="size-4" />
+                    </span>
+                  </figcaption>
+                </figure>
+              </a>
             </Reveal>
           ))}
         </div>
@@ -323,11 +336,14 @@ function Servicos() {
   );
 }
 
-const GALERIA = [
-  "57f0f8e3-a6d9-4f12-8720-25f676f69e5a-AzG782XwvQtX0ZVL.jpeg",
-  "movel7-YrDaryXZMoS4P56y.PNG",
-  "294771f9-0c75-43c3-8a8f-81c743d39d69-dWxyWK3E74T97v8g.jpg",
-  "movel8-AoPerXN2NafwbX9y.PNG",
+const GALERIA: { src: string; alt: string; pos?: string }[] = [
+  { src: galeriaRipado, alt: "Painel ripado com iluminação em LED montado pela TB Montagens", pos: "50% 20%" },
+  { src: galeriaEstante, alt: "Estante com nichos em madeira clara montada pela TB Montagens" },
+  { src: galeriaArmario, alt: "Armário planejado escuro montado pela TB Montagens" },
+  { src: galeriaMesa, alt: "Mesa de jantar com cadeiras estofadas montada pela TB Montagens" },
+  { src: IMG("movel7-YrDaryXZMoS4P56y.PNG", 1000), alt: "Montagem de estante realizada pela TB Montagens" },
+  { src: IMG("movel8-AoPerXN2NafwbX9y.PNG", 1000), alt: "Guarda-roupa montado pela TB Montagens" },
+  { src: IMG("294771f9-0c75-43c3-8a8f-81c743d39d69-dWxyWK3E74T97v8g.jpg", 1000), alt: "Painel de TV montado pela TB Montagens" },
 ];
 
 function Montagens() {
@@ -343,10 +359,23 @@ function Montagens() {
       </Reveal>
        <div className="mt-12 grid grid-cols-2 gap-3 md:gap-5">
          {GALERIA.map((foto, i) => (
-           <Reveal key={foto} delay={(i % 2) * 70} className="group overflow-hidden rounded-2xl bg-muted">
-             <img src={IMG(foto, 1000)} alt={`Montagem realizada pela TB Montagens ${i + 1}`} loading="lazy" className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+           <Reveal key={i} delay={(i % 2) * 70} className="group overflow-hidden rounded-2xl bg-muted">
+             <img
+               src={foto.src}
+               alt={foto.alt}
+               loading="lazy"
+               style={foto.pos ? { objectPosition: foto.pos } : undefined}
+               className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-105"
+             />
           </Reveal>
         ))}
+        <Reveal className="flex h-full items-center justify-center rounded-2xl bg-ink p-8 text-center text-ink-foreground">
+          <div>
+            <p className="font-display text-xl font-bold leading-snug">Sua montagem também pode estar aqui.</p>
+            <p className="mt-2 text-sm opacity-70">Fale comigo e solicite seu orçamento.</p>
+            <WaButton label="Solicitar orçamento" className="mt-6" />
+          </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -421,7 +450,7 @@ function Contato() {
           <div className="mt-10 space-y-3">
             <a href={WA_ORC} target="_blank" rel="noreferrer" className="group flex items-center gap-4 rounded-2xl border bg-card p-5 transition-all hover:-translate-y-0.5 hover:shadow-soft">
               <span className="grid size-12 place-items-center rounded-xl bg-whatsapp text-whatsapp-foreground">
-                <MessageCircle className="size-6" />
+                <WhatsAppIcon className="size-6" />
               </span>
               <div className="flex-1">
                 <p className="text-sm text-muted-foreground">WhatsApp</p>
@@ -529,7 +558,7 @@ function Index() {
         aria-label="Falar no WhatsApp"
         className="fixed bottom-5 right-5 z-40 grid size-14 place-items-center rounded-full bg-whatsapp text-whatsapp-foreground shadow-soft transition-transform hover:scale-105 md:hidden"
       >
-        <MessageCircle className="size-7" />
+        <WhatsAppIcon className="size-7" />
       </a>
     </div>
   );
