@@ -16,11 +16,13 @@ import {
   Quote,
 } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
-import logoAsset from "@/assets/tb-montagens-logo.jpg.asset.json";
+import logo from "@/assets/tb-montagens-logo.jpg";
 import galeriaRipado from "@/assets/galeria-ripado.jpg";
 import galeriaEstante from "@/assets/galeria-estante.jpg";
 import galeriaArmario from "@/assets/galeria-armario.jpg";
 import galeriaMesa from "@/assets/galeria-mesa.jpg";
+import armarioCozinha from "@/assets/armario-cozinha.jpg";
+import guardaRoupa from "@/assets/guarda-roupa.jpg";
 
 const IMG = (file: string, w = 1200) =>
   `https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=${w},fit=crop/AMqnyK017wuJewOp/${file}`;
@@ -100,7 +102,7 @@ function Header() {
     >
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-5 py-4 md:px-8">
         <a href="#inicio" className="flex items-center gap-2.5">
-          <img src={logoAsset.url} alt="Logo TB Montagens" className="size-12 rounded-lg object-contain" />
+          <img src={logo} alt="Logo TB Montagens" className="size-12 rounded-lg object-contain" />
           <span className="font-display text-[15px] font-extrabold leading-tight">
             TB Montagens
             <span className="block text-xs font-medium text-muted-foreground">Montagem profissional</span>
@@ -267,7 +269,7 @@ function Diferenciais() {
              <div className="aspect-video">
                <iframe
                  className="h-full w-full"
-                 src="https://www.youtube.com/embed/BSdzOOCqLZM"
+                 src="https://www.youtube.com/embed/BSdzOOCqLZM?autoplay=1&mute=1&loop=1&playlist=BSdzOOCqLZM&playsinline=1"
                  title="TB Montagens - montagem profissional de móveis"
                  loading="lazy"
                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture"
@@ -295,8 +297,8 @@ function Diferenciais() {
 }
 
 const SERVICOS = [
-  { t: "Armários de Cozinha", img: IMG("movel10-AMqny0pEONs1vLxV.PNG", 900) },
-  { t: "Guarda-Roupa", img: IMG("movel8-AoPerXN2NafwbX9y.PNG", 900) },
+  { t: "Armários de Cozinha", img: armarioCozinha },
+  { t: "Guarda-Roupa", img: guardaRoupa },
   { t: "Painéis", img: IMG("294771f9-0c75-43c3-8a8f-81c743d39d69-dWxyWK3E74T97v8g.jpg", 900) },
 ];
 
@@ -337,12 +339,12 @@ function Servicos() {
 }
 
 const GALERIA: { src: string; alt: string; pos?: string }[] = [
-  { src: galeriaRipado, alt: "Painel ripado com iluminação em LED montado pela TB Montagens", pos: "50% 20%" },
-  { src: galeriaEstante, alt: "Estante com nichos em madeira clara montada pela TB Montagens" },
-  { src: galeriaArmario, alt: "Armário planejado escuro montado pela TB Montagens" },
-  { src: galeriaMesa, alt: "Mesa de jantar com cadeiras estofadas montada pela TB Montagens" },
+  { src: galeriaRipado, alt: "Painel ripado com rack e iluminação em LED montado pela TB Montagens", pos: "50% 50%" },
+  { src: galeriaEstante, alt: "Gôndolas de loja brancas montadas pela TB Montagens" },
+  { src: galeriaArmario, alt: "Guarda-roupa planejado azul acinzentado montado pela TB Montagens" },
+  { src: galeriaMesa, alt: "Cozinha branca com bancada em madeira montada pela TB Montagens" },
   { src: IMG("movel7-YrDaryXZMoS4P56y.PNG", 1000), alt: "Montagem de estante realizada pela TB Montagens" },
-  { src: IMG("movel8-AoPerXN2NafwbX9y.PNG", 1000), alt: "Guarda-roupa montado pela TB Montagens" },
+  { src: guardaRoupa, alt: "Guarda-roupa montado pela TB Montagens" },
   { src: IMG("294771f9-0c75-43c3-8a8f-81c743d39d69-dWxyWK3E74T97v8g.jpg", 1000), alt: "Painel de TV montado pela TB Montagens" },
 ];
 
@@ -359,17 +361,17 @@ function Montagens() {
       </Reveal>
        <div className="mt-12 grid grid-cols-2 gap-3 md:gap-5">
          {GALERIA.map((foto, i) => (
-           <Reveal key={i} delay={(i % 2) * 70} className="group overflow-hidden rounded-2xl bg-muted">
+           <Reveal key={i} delay={(i % 2) * 70} className={`group overflow-hidden rounded-2xl bg-muted ${i === GALERIA.length - 1 && GALERIA.length % 2 ? "col-span-2 md:col-span-1" : ""}`}>
              <img
                src={foto.src}
                alt={foto.alt}
                loading="lazy"
                style={foto.pos ? { objectPosition: foto.pos } : undefined}
-               className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-105"
+               className={`w-full object-cover transition-transform duration-700 group-hover:scale-105 ${i === GALERIA.length - 1 && GALERIA.length % 2 ? "aspect-[2/1] md:aspect-[4/3]" : "aspect-[4/3]"}`}
              />
           </Reveal>
         ))}
-        <Reveal className="flex h-full items-center justify-center rounded-2xl bg-ink p-8 text-center text-ink-foreground">
+        <Reveal className="col-span-2 flex items-center md:col-span-1 md:h-full justify-center rounded-2xl bg-ink p-8 text-center text-ink-foreground">
           <div>
             <p className="font-display text-xl font-bold leading-snug">Sua montagem também pode estar aqui.</p>
             <p className="mt-2 text-sm opacity-70">Fale comigo e solicite seu orçamento.</p>
@@ -503,7 +505,7 @@ function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 md:grid-cols-[1.4fr_1fr_1fr] md:px-8">
         <div>
            <div className="flex items-center gap-3">
-             <img src={logoAsset.url} alt="Logo TB Montagens" className="size-14 rounded-lg object-contain" />
+             <img src={logo} alt="Logo TB Montagens" className="size-14 rounded-lg object-contain" />
              <p className="font-display text-xl font-extrabold">TB Montagens</p>
            </div>
           <p className="mt-3 max-w-sm text-muted-foreground">O profissional que sua propriedade sempre precisou</p>
