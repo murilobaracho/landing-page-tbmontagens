@@ -132,13 +132,69 @@
   --sidebar-ring: oklch(0.551 0.027 264.364);
 }
 
+:root {
+  --radius: 0.875rem;
+  --background: oklch(0.985 0.006 80);
+  --foreground: oklch(0.22 0.012 60);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.012 60);
+  --primary: oklch(0.74 0.15 62);
+  --primary-foreground: oklch(0.2 0.02 60);
+  --secondary: oklch(0.955 0.012 75);
+  --secondary-foreground: oklch(0.22 0.012 60);
+  --muted: oklch(0.955 0.012 75);
+  --muted-foreground: oklch(0.5 0.015 60);
+  --accent: oklch(0.93 0.04 70);
+  --accent-foreground: oklch(0.3 0.05 55);
+  --border: oklch(0.91 0.01 75);
+  --input: oklch(0.91 0.01 75);
+  --ring: oklch(0.74 0.15 62);
+  --ink: oklch(0.2 0.012 60);
+  --ink-foreground: oklch(0.97 0.006 80);
+  --whatsapp: oklch(0.62 0.16 150);
+  --whatsapp-foreground: oklch(0.99 0 0);
+  --shadow-soft: 0 1px 2px oklch(0.2 0.02 60 / 0.04), 0 12px 32px -12px oklch(0.2 0.02 60 / 0.12);
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-foreground: var(--ink-foreground);
+  --color-whatsapp: var(--whatsapp);
+  --color-whatsapp-foreground: var(--whatsapp-foreground);
+  --font-display: "Manrope", system-ui, sans-serif;
+  --font-sans: "Figtree", system-ui, sans-serif;
+  --shadow-soft: var(--shadow-soft);
+}
+
 @layer base {
   * {
     border-color: var(--color-border);
   }
-
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
   }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.025em;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
 }
