@@ -20,14 +20,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: oven-sh/setup-bun@v2
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
-          cache-dependency-path: package.json
 
       - name: Instalar dependências
-        run: npm install --no-audit --no-fund
+        run: bun install
 
       - name: Definir caminho base
         # Domínio próprio (arquivo public/CNAME) usa a raiz; senão usa /<repositório>/
@@ -39,7 +39,7 @@ jobs:
           fi
 
       - name: Build estático
-        run: npx vite build -c vite.pages.config.ts
+        run: bun run vite build -c vite.pages.config.ts
 
       - name: Fallback 404 para o SPA
         run: cp dist/client/index.html dist/client/404.html
