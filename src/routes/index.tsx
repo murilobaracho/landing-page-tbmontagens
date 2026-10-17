@@ -46,7 +46,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "TB Montagens: montagem profissional de móveis há 10 anos na Baixada Santista, com garantia de 1 ano e atendimento pelo WhatsApp.",
+          "TB Montagens: montagem profissional de móveis há 12 anos na Baixada Santista, com garantia de 1 ano e atendimento pelo WhatsApp.",
       },
       { property: "og:title", content: "TB Montagens | Baixada Santista" },
       {
@@ -173,7 +173,7 @@ function Hero() {
             <span className="text-muted-foreground">Qualidade Garantida para você.</span>
           </h1>
           <p className="mt-6 max-w-lg text-lg text-muted-foreground">
-            Montador de Móveis há 10 anos. Reserve o melhor horário para você pelo WhatsApp, sem burocracia.
+            Montador de Móveis há 12 anos. Reserve o melhor horário para você pelo WhatsApp, sem burocracia.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
             <WaButton label="Marque seu serviço" />

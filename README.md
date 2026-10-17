@@ -1,6 +1,6 @@
 # TB Montagens — Landing Page
 
-Landing page da **TB Montagens**, serviço de montagem profissional de móveis na Baixada Santista, com 10 anos de experiência e 1 ano de garantia. O objetivo do site é converter visitantes em orçamentos pelo WhatsApp.
+Landing page da **TB Montagens**, serviço de montagem profissional de móveis na Baixada Santista, com 12 anos de experiência e 1 ano de garantia. O objetivo do site é converter visitantes em orçamentos pelo WhatsApp.
 
 ## Seções
 
