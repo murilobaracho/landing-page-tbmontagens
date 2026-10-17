@@ -18,9 +18,13 @@ import {
 import { Reveal } from "@/components/site/Reveal";
 import logo from "@/assets/tb-montagens-logo.jpg";
 import galeriaRipado from "@/assets/galeria-ripado.jpg";
-import galeriaEstante from "@/assets/galeria-estante.jpg";
+import galeriaRackRattan from "@/assets/galeria-rack-rattan.jpg";
+import galeriaArmariosRattan from "@/assets/galeria-armarios-rattan.jpg";
+import galeriaGuardaRoupaBranco from "@/assets/galeria-guarda-roupa-branco.jpg";
+import galeriaCozinhaCinza from "@/assets/galeria-cozinha-cinza.jpg";
+import galeriaCozinhaCinzaL from "@/assets/galeria-cozinha-cinza-l.jpg";
+import fotoPerfil from "@/assets/foto-perfil.jpg";
 import galeriaArmario from "@/assets/galeria-armario.jpg";
-import galeriaMesa from "@/assets/galeria-mesa.jpg";
 import armarioCozinha from "@/assets/armario-cozinha.jpg";
 import guardaRoupa from "@/assets/guarda-roupa.jpg";
 
@@ -28,7 +32,7 @@ const IMG = (file: string, w = 1200) =>
   `https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=${w},fit=crop/AMqnyK017wuJewOp/${file}`;
 
 const HERO = IMG("cf0f3f88-3b0e-4c32-9d0b-9a72ce5186af-dOqbKGz8p9So1oQZ.jpeg", 1400);
-const THIAGO = IMG("417ef29b-65cc-4b16-9da1-b0832ed3bb4a-YKb6EgXykKUylp9G.jfif", 900);
+const OG_IMAGE = "https://thiagomontador.com.br/og-image.jpg";
 const WA = "https://api.whatsapp.com/send/?phone=5513997694239&text&type=phone_number&app_absent=0";
 const WA_ORC = `https://api.whatsapp.com/send/?phone=5513997694239&text=${encodeURIComponent("Olá, gostaria de um orçamento para uma montagem.")}&type=phone_number&app_absent=0`;
 const GOOGLE = "https://www.google.com/maps/search/?api=1&query=Thiago%20Montador%20TB%20Montagens%20Praia%20Grande";
@@ -49,8 +53,8 @@ export const Route = createFileRoute("/")({
         property: "og:description",
          content: "Montagem profissional de móveis com qualidade garantida para você.",
       },
-      { property: "og:image", content: THIAGO },
-      { name: "twitter:image", content: THIAGO },
+      { property: "og:image", content: OG_IMAGE },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
   }),
   component: Index,
@@ -195,7 +199,7 @@ function Hero() {
         </Reveal>
         <Reveal delay={120} className="relative">
           <div className="overflow-hidden rounded-3xl shadow-soft">
-            <img src={THIAGO} alt="Thiago, montador de móveis profissional" className="aspect-[4/5] w-full object-cover lg:aspect-[5/6]" />
+            <img src={fotoPerfil} alt="Thiago, montador de móveis profissional" className="aspect-[4/5] w-full object-cover object-[50%_20%] lg:aspect-[5/6]" />
           </div>
           <div className="absolute -bottom-6 left-4 flex items-center gap-3 rounded-2xl border bg-card p-4 shadow-soft sm:-left-6">
             <span className="grid size-11 place-items-center rounded-xl bg-accent text-accent-foreground">
@@ -299,7 +303,7 @@ function Diferenciais() {
 const SERVICOS = [
   { t: "Armários de Cozinha", img: armarioCozinha },
   { t: "Guarda-Roupa", img: guardaRoupa },
-  { t: "Painéis", img: IMG("294771f9-0c75-43c3-8a8f-81c743d39d69-dWxyWK3E74T97v8g.jpg", 900) },
+  { t: "Painéis", img: galeriaRipado },
 ];
 
 function Servicos() {
@@ -339,13 +343,13 @@ function Servicos() {
 }
 
 const GALERIA: { src: string; alt: string; pos?: string }[] = [
-  { src: galeriaRipado, alt: "Painel ripado com rack e iluminação em LED montado pela TB Montagens", pos: "50% 50%" },
-  { src: galeriaEstante, alt: "Gôndolas de loja brancas montadas pela TB Montagens" },
+  { src: galeriaRipado, alt: "Painel ripado com rack e iluminação em LED montado pela TB Montagens" },
+  { src: galeriaRackRattan, alt: "Rack de TV com portas em palhinha montado pela TB Montagens" },
+  { src: galeriaGuardaRoupaBranco, alt: "Guarda-roupa branco com gavetas montado pela TB Montagens" },
+  { src: galeriaArmariosRattan, alt: "Armários e aparadores com palhinha montados pela TB Montagens" },
   { src: galeriaArmario, alt: "Guarda-roupa planejado azul acinzentado montado pela TB Montagens" },
-  { src: galeriaMesa, alt: "Cozinha branca com bancada em madeira montada pela TB Montagens" },
-  { src: IMG("movel7-YrDaryXZMoS4P56y.PNG", 1000), alt: "Montagem de estante realizada pela TB Montagens" },
-  { src: guardaRoupa, alt: "Guarda-roupa montado pela TB Montagens" },
-  { src: IMG("294771f9-0c75-43c3-8a8f-81c743d39d69-dWxyWK3E74T97v8g.jpg", 1000), alt: "Painel de TV montado pela TB Montagens" },
+  { src: galeriaCozinhaCinza, alt: "Armários de cozinha cinza suspensos montados pela TB Montagens" },
+  { src: galeriaCozinhaCinzaL, alt: "Cozinha planejada cinza em L montada pela TB Montagens" },
 ];
 
 function Montagens() {
